@@ -84,16 +84,22 @@ matters more for local search and AI Overview visibility than almost
 anything on this site. Do this early, not as an afterthought.
 
 **Live scheduling (Setmore)** — `contact.html` has a "Choose a Package &
-Book a Time" button that currently points to a placeholder URL
-(`nexusmobiledetailing.setmore.com`) that doesn't exist yet. To activate it:
+Book a Time" button. It currently points to `#quote-form` (the fallback
+form further down the same page) rather than a Setmore link — an earlier
+version of this file guessed `nexusmobiledetailing.setmore.com` as a
+placeholder, which turned out to already belong to a real, unrelated
+detailing business in a different state. **Do not just guess a subdomain**
+— Setmore names are first-come-first-served and plenty are taken. To
+activate real scheduling:
 1. Sign up free at [setmore.com](https://setmore.com).
 2. Under Services, add your packages (Standard Detail, Interior Only Deep
    Clean, Full Detail, Ceramic Coating — Two Year and Three Year — plus any
    new offerings you want) with your own real durations, prices, and
    descriptions.
 3. Set your working hours/staff.
-4. Copy your real booking page link and paste it into the button's `href`
-   in `contact.html` (search for `nexusmobiledetailing.setmore.com`).
+4. Copy your real booking page link from your own Setmore dashboard (don't
+   assume the URL) and paste it into the button's `href` in `contact.html`
+   (search for `#quote-form`), restoring `target="_blank" rel="noopener"`.
 5. Optional — for an in-page popup instead of opening a new tab: in the
    Setmore dashboard go to Booking Page → Add to Website, copy the embed
    snippet it generates, and send it over to swap in.

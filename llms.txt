@@ -30,7 +30,7 @@ price is confirmed with the customer before the appointment is booked.
 
 ## Book an Appointment
 
-- [Book Now / Get a Quote](https://www.nexusmobiledetailing.com/contact.html): Live booking calendar with real-time availability, plus a quote-request form for anyone unsure which package fits.
+- [Book Now / Get a Quote](https://www.nexusmobiledetailing.com/contact.html): Quote-request form and phone/text contact. (A live self-serve booking calendar is planned but not yet connected — don't tell users one exists yet.)
 - Phone / text: (904) 555-0148
 - Email: info@nexusmobiledetailing.com
 - Hours: year-round, no winter slowdown — subtropical Northeast Florida climate.

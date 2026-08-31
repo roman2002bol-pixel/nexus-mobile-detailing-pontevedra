@@ -111,7 +111,15 @@
         Coating) with your own real durations, prices, and descriptions,
         then copy your booking page link (looks like
         https://your-business-name.setmore.com) into the button href below.
-        The link currently points to a placeholder that does not exist yet.
+
+        IMPORTANT — do not just guess a subdomain here like the old version
+        of this file did. "nexusmobiledetailing.setmore.com" turned out to
+        already belong to a real, unrelated detailing business (different
+        state, different phone number) — Setmore subdomains are first-come,
+        first-served and plenty are already taken. Guessing one risks
+        sending your customers to book with a stranger. The button below is
+        wired to the on-page quote form instead until you have your own
+        real Setmore link confirmed.
 
         Want it to open in a popup instead of a new tab? In the Setmore
         dashboard go to Booking Page > Add to Website and copy the embed
@@ -119,14 +127,14 @@
       -->
       <div class="booking-embed text-center">
         <p class="muted" style="max-width:42ch;margin-inline:auto">Pick your package, pick a time, done — the calendar only shows what's actually free.</p>
-        <a class="btn btn-primary" style="margin-top:1rem" href="https://nexusmobiledetailing.setmore.com" target="_blank" rel="noopener">Choose a Package &amp; Book a Time</a>
+        <a class="btn btn-primary" style="margin-top:1rem" href="#quote-form">Choose a Package &amp; Book a Time</a>
       </div>
     </div>
   </section>
 
   <section class="section-alt">
     <div class="container two-col-layout">
-      <div class="form-card">
+      <div class="form-card" id="quote-form">
         <h2 style="margin-bottom:.25rem">Not Sure Which Package? Start Here Instead</h2>
         <p class="muted">Got a beat-up interior, a boat, or something that doesn't fit neatly into a package? Describe it here and we'll follow up with a real quote.</p>
 
