@@ -11,7 +11,8 @@ Sizes below are a guide, not a hard requirement — object-fit:cover will crop
 to match, so slightly different ratios are fine.
 
 HOME PAGE
-  hero-bg.png                1920x1200  full-bleed hero background photo (optional — CSS falls back cleanly without it)
+  hero-bg.jpg                [done]     full-bleed hero background photo — aerial shot of
+                                         Ponte Vedra Beach, already in place
   service-standard.png       800x600    Standard Detail row photo
   service-interior.png       800x600    Interior Only Deep Clean row photo
   service-full.png           800x600    Full Detail row photo
@@ -33,12 +34,15 @@ SERVICE AREA PAGE
                                        have one, otherwise any strong before/after
 
 LOGO / FAVICON
-  The header currently uses a text-based "NX" wordmark (no image needed to
-  look finished). If you have a real logo file, replace the <span class="logo-mark">
-  and <span class="logo-text"> block in the header of every page with:
-    <img class="logo-img" src="images/logo.jpg" alt="NEXUS Mobile Detailing">
-  and drop your logo in as images/logo.jpg. See README.md in the project root
-  for a ready-to-use AI logo-generation prompt if you don't have one yet.
+  [done] The header on every page now uses the real logo:
+  images/Nexus_Mobile_detailng.jpg. The footer still uses the styled text
+  "NX" mark instead, on purpose — the real logo has a light/paper
+  background that would show as an ugly white box on the dark footer.
+  The favicon (browser tab icon) is still the simplified "NX" monogram —
+  fine as-is since favicons are tiny and it already matches the brand
+  colors, but if you want it pixel-matched to the real logo later, crop
+  just the car-silhouette mark (not the wordmark) into a square SVG/PNG
+  and swap the <link rel="icon"> data URI in every page's <head>.
 
 OG IMAGE
   og-image.jpg               1200x630   used for link previews on social/text/iMessage
