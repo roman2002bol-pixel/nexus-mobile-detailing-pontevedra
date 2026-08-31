@@ -1,4 +1,4 @@
-/* River City Mobile Detailing — site behavior. Vanilla JS, no dependencies. */
+/* NEXUS Mobile Detailing — site behavior. Vanilla JS, no dependencies. */
 (function () {
   "use strict";
 
@@ -22,12 +22,37 @@
   closeBtn && closeBtn.addEventListener("click", closeNav);
   overlay && overlay.addEventListener("click", closeNav);
 
-  /* mobile accordion for dropdown nav groups (Services / Service Area) */
-  document.querySelectorAll(".nav-group-label").forEach(function (label) {
+  /* dropdown nav groups (Services / Service Area) — mobile accordion +
+     desktop hover/click. On desktop, hovering opens it (mouseenter/
+     mouseleave drive the same .is-open class the CSS shows the dropdown
+     from — not a separate :hover rule). Clicking always flips it, so a
+     click while it's open (however it got open) closes it. The
+     "lockedClosed" flag exists because a click doesn't stop the mouse
+     from still resting on the trigger afterward: without it, the very
+     next mouseenter-driven re-check would just reopen what you just
+     closed. The lock clears on mouseleave, so hovering in again later
+     behaves normally. */
+  document.querySelectorAll(".nav-group").forEach(function (group) {
+    var label = group.querySelector(".nav-group-label");
+    var lockedClosed = false;
+
     label.addEventListener("click", function () {
-      if (window.innerWidth >= 960) return; // desktop uses hover
-      var group = label.closest(".nav-group");
-      group.classList.toggle("is-open");
+      if (window.innerWidth >= 960) {
+        var isOpen = group.classList.contains("is-open");
+        group.classList.toggle("is-open", !isOpen);
+        lockedClosed = isOpen; // just closed it -> lock; just opened it -> unlock
+      } else {
+        group.classList.toggle("is-open");
+      }
+    });
+    group.addEventListener("mouseenter", function () {
+      if (window.innerWidth >= 960 && !lockedClosed) group.classList.add("is-open");
+    });
+    group.addEventListener("mouseleave", function () {
+      if (window.innerWidth >= 960) {
+        group.classList.remove("is-open");
+        lockedClosed = false;
+      }
     });
   });
 
@@ -67,9 +92,9 @@
         var data = new FormData(form);
         var lines = [];
         data.forEach(function (value, key) { lines.push(key + ": " + value); });
-        var subject = encodeURIComponent("New booking request — River City Mobile Detailing");
+        var subject = encodeURIComponent("New booking request — NEXUS Mobile Detailing");
         var body = encodeURIComponent(lines.join("\n"));
-        window.location.href = "mailto:info@rivercitymobiledetailing.com?subject=" + subject + "&body=" + body;
+        window.location.href = "mailto:info@nexusmobiledetailing.com?subject=" + subject + "&body=" + body;
         if (status) {
           status.textContent = "Opening your email app to send the request — or just call/text us instead.";
           status.className = "form-status ok is-visible";

@@ -189,7 +189,13 @@ section { padding-block: clamp(2.75rem, 6vw, 5rem); }
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
     box-shadow: var(--shadow-md); min-width: 230px; padding: .5rem;
   }
-  .nav-group:hover .nav-sub, .nav-group.is-open .nav-sub { display: block; }
+  /* Deliberately .is-open only, no :hover rule here — JS mirrors hover
+     into the same .is-open class (mouseenter/mouseleave) so opening via
+     hover and opening via click share one state. That's what lets a
+     click toggle it closed again even while the mouse never left the
+     trigger: a plain :hover rule would just override a JS-driven close
+     the instant the pointer is still sitting over the element. */
+  .nav-group.is-open .nav-sub { display: block; }
   .nav-sub li a { border-radius: 6px; padding: .6rem .7rem; }
   .nav-sub li a:hover { background: var(--accent-soft); }
   .nav-cta { display: none; } /* redundant with header's Call Now + page CTAs once nav sits inline */
