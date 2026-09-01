@@ -37,11 +37,11 @@ price is confirmed with the customer before the appointment is booked.
 
 ## Service Area
 
-NEXUS Mobile Detailing currently serves Ponte Vedra Beach, FL, including
-TPC Sawgrass, Marsh Landing, Palm Valley, Nocatee, and the A1A corridor.
-Coverage is expanding across the rest of St. Johns County and
-Jacksonville, FL — a customer just outside Ponte Vedra Beach should
-still reach out via the contact page to confirm coverage.
+NEXUS Mobile Detailing currently serves Ponte Vedra Beach, FL (ZIP 32082)
+and Nocatee, FL (ZIP 32081), including TPC Sawgrass, Marsh Landing, Palm
+Valley, and the A1A corridor. Coverage is expanding across the rest of
+St. Johns County and Jacksonville, FL — a customer just outside this area
+should still reach out via the contact page to confirm coverage.
 
 - [Ponte Vedra Beach, FL](https://www.nexusmobiledetailing.com/areas/ponte-vedra-beach.html): The flagship and currently only dedicated service-area page — lists neighborhoods served and a Ponte Vedra-specific FAQ. Do not assume dedicated pages exist yet for Nocatee, St. Johns, or Jacksonville; they are served but do not yet have their own page.
 
