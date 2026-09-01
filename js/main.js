@@ -1,4 +1,4 @@
-/* NEXUS Mobile Detailing — site behavior. Vanilla JS, no dependencies. */
+/* NEXUS Mobile Detailing – site behavior. Vanilla JS, no dependencies. */
 (function () {
   "use strict";
 
@@ -22,10 +22,10 @@
   closeBtn && closeBtn.addEventListener("click", closeNav);
   overlay && overlay.addEventListener("click", closeNav);
 
-  /* dropdown nav groups (Services / Service Area) — mobile accordion +
+  /* dropdown nav groups (Services / Service Area) – mobile accordion +
      desktop hover/click. On desktop, hovering opens it (mouseenter/
      mouseleave drive the same .is-open class the CSS shows the dropdown
-     from — not a separate :hover rule). Clicking always flips it, so a
+     from – not a separate :hover rule). Clicking always flips it, so a
      click while it's open (however it got open) closes it. The
      "lockedClosed" flag exists because a click doesn't stop the mouse
      from still resting on the trigger afterward: without it, the very
@@ -86,17 +86,17 @@
       var endpointConfigured = form.getAttribute("data-endpoint-ready") === "true";
 
       if (!endpointConfigured) {
-        // No form backend wired up yet (see README) — fall back to a
+        // No form backend wired up yet (see README) – fall back to a
         // pre-filled email so requests are never silently lost.
         e.preventDefault();
         var data = new FormData(form);
         var lines = [];
         data.forEach(function (value, key) { lines.push(key + ": " + value); });
-        var subject = encodeURIComponent("New booking request — NEXUS Mobile Detailing");
+        var subject = encodeURIComponent("New booking request – NEXUS Mobile Detailing");
         var body = encodeURIComponent(lines.join("\n"));
         window.location.href = "mailto:info@nexusmobiledetailing.com?subject=" + subject + "&body=" + body;
         if (status) {
-          status.textContent = "Opening your email app to send the request — or just call/text us instead.";
+          status.textContent = "Opening your email app to send the request – or just call/text us instead.";
           status.className = "form-status ok is-visible";
         }
       }

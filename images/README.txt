@@ -1,17 +1,17 @@
-IMAGE CHECKLIST — NEXUS Mobile Detailing of Ponte Vedra
+IMAGE CHECKLIST – NEXUS Mobile Detailing of Ponte Vedra
 ==============================================
 Drop files into this folder using the EXACT names below and every placeholder
-box on the site will automatically be replaced with your real photo — no code
+box on the site will automatically be replaced with your real photo – no code
 edits needed. Until a file exists, the page shows a labeled gray placeholder
-instead of a broken image (the hero background is the one exception — it
+instead of a broken image (the hero background is the one exception – it
 just quietly shows the plain background until you add it, see below).
 
 Recommended format: .jpg, optimized/compressed (mobile-first = fast loading).
-Sizes below are a guide, not a hard requirement — object-fit:cover will crop
+Sizes below are a guide, not a hard requirement – object-fit:cover will crop
 to match, so slightly different ratios are fine.
 
 HOME PAGE
-  hero-bg.jpg                [done]     full-bleed hero background photo — aerial shot of
+  hero-bg.jpg                [done]     full-bleed hero background photo – aerial shot of
                                          Ponte Vedra Beach, already in place
   service-standard.png       800x600    Standard Detail row photo
   service-interior.png       800x600    Interior Only Deep Clean row photo
@@ -26,7 +26,7 @@ ABOUT PAGE
 SERVICE PAGES
   Each service detail page (services/full-detail.html etc.) reuses the
   same HOME PAGE photo for that package (service-full.png,
-  service-standard.png, service-interior.png, service-ceramic.png) — no
+  service-standard.png, service-interior.png, service-ceramic.png) – no
   separate file needed.
 
 SERVICE AREA PAGE
@@ -36,9 +36,9 @@ SERVICE AREA PAGE
 LOGO / FAVICON
   [done] The header on every page now uses the real logo:
   images/Nexus_Mobile_detailng.jpg. The footer still uses the styled text
-  "NX" mark instead, on purpose — the real logo has a light/paper
+  "NX" mark instead, on purpose – the real logo has a light/paper
   background that would show as an ugly white box on the dark footer.
-  The favicon (browser tab icon) is still the simplified "NX" monogram —
+  The favicon (browser tab icon) is still the simplified "NX" monogram –
   fine as-is since favicons are tiny and it already matches the brand
   colors, but if you want it pixel-matched to the real logo later, crop
   just the car-silhouette mark (not the wordmark) into a square SVG/PNG
