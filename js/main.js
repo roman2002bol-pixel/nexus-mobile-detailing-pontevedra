@@ -100,8 +100,37 @@
           status.className = "form-status ok is-visible";
         }
       }
+      trackLead("quote_form");
     });
   }
+
+  /* ---------- lead tracking (GA4) ----------
+     Fires distinct, named events instead of relying on GA4 Enhanced
+     Measurement's automatic "click" event – that one lumps tel:/mailto:
+     links together with every other outbound click (social links, the
+     map embed, etc.), so marking it as a Key Event would count all of
+     those as "leads", not just real contact attempts. No-ops silently
+     until the GA4 gtag.js snippet is actually added to <head> – safe to
+     ship ahead of that. */
+  function trackLead(label, extra) {
+    if (typeof gtag !== "function") return;
+    var params = { event_category: "lead", event_label: label };
+    for (var key in extra) params[key] = extra[key];
+    gtag("event", "generate_lead", params);
+  }
+
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener("click", function () { trackLead("click_to_call"); });
+  });
+  document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
+    link.addEventListener("click", function () { trackLead("click_to_text"); });
+  });
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+    link.addEventListener("click", function () { trackLead("click_to_email"); });
+  });
+  document.querySelectorAll('a[href*="setmore.com"]').forEach(function (link) {
+    link.addEventListener("click", function () { trackLead("setmore_booking"); });
+  });
 
   /* ---------- footer year ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {

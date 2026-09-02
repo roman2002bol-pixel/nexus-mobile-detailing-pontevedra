@@ -150,7 +150,54 @@ Once you have a domain, update the `<link rel="canonical">` tags and the
 - `llms.txt` at the project root for AI-agent discovery (ChatGPT, Claude,
   Perplexity, etc. – see llmstxt.org).
 
-## 6. Design notes (why it doesn't look like a template)
+## 6. Lead tracking (Google Analytics 4)
+
+Google Business Profile is verified – the next piece is knowing which
+channel each lead actually came from (Maps listing vs. organic search vs.
+a call vs. the quote form vs. the Setmore booking link).
+
+**Already wired up in the code, waiting on a GA4 property:**
+`js/main.js` fires distinct GA4 events for every real contact action –
+`click_to_call` (tel: links), `click_to_text` (sms: links),
+`click_to_email` (mailto: links), `setmore_booking` (any link to
+`*.setmore.com` – our actual primary booking path), and `quote_form`
+(the fallback quote form's mailto submit) – all sent as `generate_lead`
+events with a distinguishing `event_label`, so they show up in GA4/Search
+Console as one real "leads" metric instead of guesswork.
+
+**Deliberately not using GA4's built-in Enhanced Measurement "click"
+event for this** – it fires for *any* outbound link (tel:/mailto: links
+included, but also the map embed, social links, anything leaving the
+site), so marking it as a Key Event would count every one of those as a
+"lead", not just real contact attempts. The named events above are the
+accurate way to do it.
+
+**To finish activating tracking** (needs a free Google Analytics account
+– create the property yourself, then hand off the ID):
+1. Create a GA4 property at [analytics.google.com](https://analytics.google.com) and grab its
+   Measurement ID (`G-XXXXXXXXXX`).
+2. Send that ID over – the `gtag.js` snippet gets added to every page's
+   `<head>` in one pass, and the events above start reporting immediately
+   (no other code changes needed, they're already firing – they just have
+   nowhere to send to yet).
+3. In GA4, go to **Admin → Events**, find `generate_lead`, and mark it as
+   a **Key Event** (GA4's current name for what used to be called a
+   "conversion").
+4. Optional but recommended – in your Google Business Profile's Website
+   field, add UTM parameters (`?utm_source=google_maps&utm_medium=organic&utm_campaign=gbp_listing`)
+   so GA4 can tell "came from the Maps listing" apart from plain organic
+   search, which otherwise get bucketed together. Do this once the real
+   domain is live, since it has to point at the real URL.
+
+**Not something this repo can set up** (all need your own accounts):
+Google Business Profile's own **Performance** tab already tracks direct
+"Call" taps on the Maps card itself, separately from anything above – no
+setup needed there, it's automatic. Instant lead notifications (e.g. a
+Telegram bot via a Formspree/Web3Forms webhook) and call forwarding on
+your phone carrier are also entirely outside the website – set those up
+directly with those services when you're ready.
+
+## 7. Design notes (why it doesn't look like a template)
 
 The visual system leans on the brand name and the setting: "NEXUS" is
 where the manicured Ponte Vedra golf-club coastline meets the Atlantic –
@@ -166,7 +213,7 @@ The homepage hero is set up for a full-bleed photo background (`.hero` in
 in as `images/hero-bg.png`; until then it just shows the plain background,
 nothing breaks.
 
-## 7. Getting a real logo made
+## 8. Getting a real logo made
 
 The current header/footer logo is a clean text wordmark ("NX" mark +
 "NEXUS / Mobile Detailing"), so the site looks finished with zero extra
