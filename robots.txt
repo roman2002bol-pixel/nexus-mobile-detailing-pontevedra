@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.nexusmobiledetailing.com/sitemap.xml
+Sitemap: https://www.nexusmobiledetailingh.com/sitemap.xml

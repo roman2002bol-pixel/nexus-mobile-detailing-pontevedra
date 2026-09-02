@@ -122,17 +122,22 @@ Detailing">`. See section 7 for how to get a logo made.
 
 ## 4. Deploying
 
-Any static host works since there's no server-side code:
-- **Netlify** – drag the whole folder onto app.netlify.com/drop (also gets
-  you free form handling, see above).
-- **GitHub Pages / Cloudflare Pages** – push the folder to a repo, enable
-  Pages.
-- **Traditional hosting (GoDaddy, cPanel, etc.)** – upload the folder via
-  FTP/File Manager as-is.
+**Live now, on real infrastructure.** This repo auto-deploys on every push
+to `main` to two places at once:
+- **Vercel** (production) – `https://www.nexusmobiledetailingh.com` is the
+  real domain (Cloudflare-managed DNS, apex `nexusmobiledetailingh.com`
+  308-redirects to `www.`). Also reachable at the default
+  `https://nexus-mobile-detailing-pontevedra.vercel.app`.
+- **GitHub Pages** – `https://roman2002bol-pixel.github.io/nexus-mobile-detailing-pontevedra/`,
+  set up before Vercel was connected. Now redundant since Vercel serves the
+  real domain, but harmless to leave running – every page's `canonical` tag
+  points at the real `www.nexusmobiledetailingh.com` regardless of which
+  URL served the request, so none of this reads as duplicate content to
+  Google.
 
-Once you have a domain, update the `<link rel="canonical">` tags and the
-`AutoDetailing` JSON-LD block in `index.html` from the placeholder
-`nexusmobiledetailing.com` to your real domain.
+Any other static host would also work since there's no server-side code
+(Netlify, Cloudflare Pages, traditional FTP hosting, etc.) – just not
+needed here, the two above already cover it.
 
 ## 5. SEO already built in
 
@@ -184,10 +189,10 @@ accurate way to do it.
    a **Key Event** (GA4's current name for what used to be called a
    "conversion").
 4. Optional but recommended – in your Google Business Profile's Website
-   field, add UTM parameters (`?utm_source=google_maps&utm_medium=organic&utm_campaign=gbp_listing`)
+   field, point it at
+   `https://www.nexusmobiledetailingh.com/?utm_source=google_maps&utm_medium=organic&utm_campaign=gbp_listing`
    so GA4 can tell "came from the Maps listing" apart from plain organic
-   search, which otherwise get bucketed together. Do this once the real
-   domain is live, since it has to point at the real URL.
+   search, which otherwise get bucketed together.
 
 **Not something this repo can set up** (all need your own accounts):
 Google Business Profile's own **Performance** tab already tracks direct
