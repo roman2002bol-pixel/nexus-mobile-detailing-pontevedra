@@ -94,7 +94,7 @@
         data.forEach(function (value, key) { lines.push(key + ": " + value); });
         var subject = encodeURIComponent("New booking request – NEXUS Mobile Detailing");
         var body = encodeURIComponent(lines.join("\n"));
-        window.location.href = "mailto:info@nexusmobiledetailing.com?subject=" + subject + "&body=" + body;
+        window.location.href = "mailto:nexusmobiledetailingh@gmail.com?subject=" + subject + "&body=" + body;
         if (status) {
           status.textContent = "Opening your email app to send the request – or just call/text us instead.";
           status.className = "form-status ok is-visible";

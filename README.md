@@ -41,18 +41,18 @@ by copy-pasting this file and swapping the city name.
 
 ## 3. Before you launch – placeholders to replace
 
-**Phone number & email** – every page currently uses a placeholder number
-`(904) 555-0148` (as text, `tel:+19045550148`, and `sms:+19045550148`) and
-`info@nexusmobiledetailing.com`. Once you have a real business number,
-replace it everywhere in one shot:
+**Phone number & email – live, real values.** Every page uses the real
+business number `(904) 871-4634` (as text, `tel:+19048714634`, and
+`sms:+19048714634`) and `nexusmobiledetailingh@gmail.com`. If either ever
+changes, update it everywhere in one shot:
 
 ```powershell
 # Run from the project folder in PowerShell – updates every file at once.
 Get-ChildItem -Recurse -Include *.html,*.js | ForEach-Object {
   (Get-Content $_.FullName -Raw) `
-    -replace '\(904\) 555-0148', '(YOUR) NEW-NUMBER' `
-    -replace '\+19045550148', '+1YOURNEWNUMBER' `
-    -replace 'info@nexusmobiledetailing\.com', 'your-real-email@example.com' |
+    -replace '\(904\) 871-4634', '(YOUR) NEW-NUMBER' `
+    -replace '\+19048714634', '+1YOURNEWNUMBER' `
+    -replace 'nexusmobiledetailingh@gmail\.com', 'your-new-email@example.com' |
     Set-Content $_.FullName -NoNewline
 }
 ```
