@@ -71,12 +71,15 @@ files into `/images` and every placeholder box disappears automatically.
 The homepage hero also expects a background photo at `images/hero-bg.png`
 (a wide, moody shot works best – see the CSS notes in section 6).
 
-**Reviews** (`reviews.html` and the homepage) – the review cards are marked
-`[Add a real Google review here]` on purpose. Don't invent testimonials –
-copy your actual current Google reviews in, word for word, or embed Google's
-own review widget. There's also a "Leave a Review" button that needs your
-Google Business Profile Place ID (instructions are in an HTML comment right
-above it in `reviews.html`).
+**Reviews** (`reviews.html`) – no reviews yet, so the page intentionally
+doesn't show fake placeholder cards or mention having zero reviews; it's
+just a "Leave a Review" invite for now. The button already links to the
+real Google Business Profile listing (one click to "Write a review" from
+there). Once you have real reviews, add cards for them – copy them in word
+for word, never invent testimonials. If Google Business Profile's own "Get
+more reviews" feature gives you a direct short link (`g.page/r/…/review`),
+swap that into the button's `href` to skip the extra click (see the HTML
+comment above the button in `reviews.html`).
 
 **Set up a Google Business Profile before or alongside launch.** For a
 mobile, service-area business like this one, your Google Business Profile
