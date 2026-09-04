@@ -59,7 +59,7 @@ Get-ChildItem -Recurse -Include *.html,*.js | ForEach-Object {
 Use the same digits-only format (`+1XXXXXXXXXX`) for the `tel:`/`sms:` version
 so click-to-call and click-to-text work correctly.
 
-**Pricing** – the prices on every page ($180/$225/$360/$550 base rates) are
+**Pricing** – the prices on every page ($120/$160/$280/$750 base rates) are
 starting estimates based on market research for the Ponte Vedra Beach area
 (affluent, premium-detailing-friendly), not confirmed real costs. Adjust
 them once you know your actual product/labor costs and what local
