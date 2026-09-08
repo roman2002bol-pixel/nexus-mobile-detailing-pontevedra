@@ -78,16 +78,21 @@
     }
   });
 
-  /* ---------- booking / quote form ---------- */
-  var form = document.querySelector("[data-booking-form]");
-  if (form) {
+  /* ---------- booking / quote form ----------
+     Two modes, switched per-form by data-endpoint-ready:
+     - "false" (no backend yet): pre-filled mailto fallback, same as
+       before – nothing is ever silently lost, just not fully automatic.
+     - "true" (a real endpoint is set in the form's action, e.g.
+       Formspree): submit via fetch so the visitor never leaves the
+       page – show an inline confirmation/error in .form-status instead
+       of a full-page redirect to the form provider's own thank-you page. */
+  document.querySelectorAll("[data-booking-form]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       var status = form.querySelector("[data-form-status]");
+      var submitBtn = form.querySelector('button[type="submit"]');
       var endpointConfigured = form.getAttribute("data-endpoint-ready") === "true";
 
       if (!endpointConfigured) {
-        // No form backend wired up yet (see README) – fall back to a
-        // pre-filled email so requests are never silently lost.
         e.preventDefault();
         var data = new FormData(form);
         var lines = [];
@@ -99,10 +104,38 @@
           status.textContent = "Opening your email app to send the request – or just call/text us instead.";
           status.className = "form-status ok is-visible";
         }
+        trackLead("quote_form");
+        return;
       }
-      trackLead("quote_form");
+
+      e.preventDefault();
+      if (submitBtn) submitBtn.disabled = true;
+      if (status) {
+        status.textContent = "Sending…";
+        status.className = "form-status is-visible";
+      }
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(function (response) {
+        if (!response.ok) throw new Error("Form submission failed");
+        if (status) {
+          status.textContent = "Thanks! Your request is in – we'll get back to you shortly.";
+          status.className = "form-status ok is-visible";
+        }
+        form.reset();
+        trackLead("quote_form");
+      }).catch(function () {
+        if (status) {
+          status.textContent = "Something went wrong sending that – please call or text us instead.";
+          status.className = "form-status err is-visible";
+        }
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
     });
-  }
+  });
 
   /* ---------- lead tracking (GA4) ----------
      Fires distinct, named events instead of relying on GA4 Enhanced
