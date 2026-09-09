@@ -362,7 +362,16 @@
       <div class="form-card" id="quote-form">
         <h2 style="margin-bottom:.25rem">Get a Free Quote</h2>
         <p class="muted">Tell us about the car and we'll follow up with a real price – no guesswork, no obligation.</p>
-        <form data-booking-form data-endpoint-ready="false" method="POST" action="#">
+        <!--
+          Submits via Web3Forms (api.web3forms.com) – no server of our own
+          needed. js/main.js sends this with fetch() and shows an inline
+          success/error message instead of leaving the page.
+        -->
+        <form data-booking-form data-endpoint-ready="true" method="POST" action="https://api.web3forms.com/submit">
+          <input type="hidden" name="access_key" value="82bc3ff9-1b5e-4e58-9505-890561fafa73">
+          <input type="hidden" name="subject" value="New quote request – Homepage (NEXUS Mobile Detailing)">
+          <input type="hidden" name="from_name" value="NEXUS Mobile Detailing Website">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none">
           <div class="form-grid">
             <div class="form-grid two-col">
               <div class="field">
