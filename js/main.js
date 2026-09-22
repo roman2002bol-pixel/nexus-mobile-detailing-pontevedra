@@ -161,9 +161,6 @@
   document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
     link.addEventListener("click", function () { trackLead("click_to_email"); });
   });
-  document.querySelectorAll('a[href*="setmore.com"]').forEach(function (link) {
-    link.addEventListener("click", function () { trackLead("setmore_booking"); });
-  });
 
   /* ---------- footer year ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {

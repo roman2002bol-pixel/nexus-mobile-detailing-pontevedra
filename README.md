@@ -86,18 +86,26 @@ mobile, service-area business like this one, your Google Business Profile
 matters more for local search and AI Overview visibility than almost
 anything on this site. Do this early, not as an afterthought.
 
-**Live scheduling (Setmore)** – `contact.html`'s "Choose a Package & Book
-a Time" button is live, pointing to the real, verified account at
-`https://nexusmobiledetailingh.setmore.com` (note the "h" – the plain
-`nexusmobiledetailing.setmore.com` belongs to an unrelated business in
-another state; don't "simplify" the URL). All 17 services and their
-pricing are already synced to match this site. If you add a new package
-or change a price here, update it in the Setmore dashboard too – the two
-aren't linked automatically.
+**Booking is by phone – there is no online calendar.** Removed
+2026-09-22 at Roman's request: a self-serve calendar hands strangers the
+power to put a job on the schedule at a time he cannot actually work, and
+for a one-van operation that is a worse problem than a missed click. The
+Setmore link, its section on `contact.html`, the `.booking-embed` styles
+and the `setmore_booking` analytics event are all gone.
 
-**Do not just guess a Setmore subdomain** if you ever need to redo this
-– names are first-come-first-served and plenty are already taken by
-unrelated businesses.
+`contact.html` now explains the flow instead: call or text, we confirm the
+time and the real price in the same conversation, we come to you. The
+Web3Forms quote form stays – it is a request that Roman answers, not a
+booking that happens without him.
+
+**If a calendar ever comes back**, the Setmore account still exists at
+`https://nexusmobiledetailingh.setmore.com` – note the "h"; the plain
+`nexusmobiledetailing.setmore.com` belongs to an unrelated business in
+another state, so don't "simplify" the URL. Prices are not linked
+automatically between site and dashboard; they have to be re-synced by
+hand. And **do not guess a Setmore subdomain** – they are
+first-come-first-served and plenty are already taken by unrelated
+businesses.
 - Optional – for an in-page popup instead of opening a new tab: in the
   Setmore dashboard go to Booking Page → Add to Website, copy the embed
   snippet it generates, and send it over to swap in.
@@ -162,14 +170,13 @@ needed here, the two above already cover it.
 
 Google Business Profile is verified – the next piece is knowing which
 channel each lead actually came from (Maps listing vs. organic search vs.
-a call vs. the quote form vs. the Setmore booking link).
+a call vs. a text vs. the quote form).
 
 **Already wired up in the code, waiting on a GA4 property:**
 `js/main.js` fires distinct GA4 events for every real contact action –
 `click_to_call` (tel: links), `click_to_text` (sms: links),
-`click_to_email` (mailto: links), `setmore_booking` (any link to
-`*.setmore.com` – our actual primary booking path), and `quote_form`
-(the fallback quote form's mailto submit) – all sent as `generate_lead`
+`click_to_email` (mailto: links), and `quote_form` (the quote form
+submit) – all sent as `generate_lead`
 events with a distinguishing `event_label`, so they show up in GA4/Search
 Console as one real "leads" metric instead of guesswork.
 
