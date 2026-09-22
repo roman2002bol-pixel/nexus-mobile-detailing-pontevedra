@@ -51,6 +51,22 @@ tracking.** Use it instead of doing these tasks fully by hand; the rules below
 are what those tools don't know about this project and must still be checked
 by hand afterward.
 
+- **`<title>` <= 62 characters, meta description 70-160** -- measured on the
+  RENDERED text, so `&amp;` counts as one character, not five. Every page on
+  the NEXUS site broke this except the homepage (2026-09-22): eight titles
+  between 65 and 77 characters and four descriptions over 160, all from the
+  same cause as on the microsites -- a long brand-plus-location suffix
+  (`| NEXUS Mobile Detailing - Ponte Vedra Beach, FL`, 46 characters) bolted
+  onto a title that already said where it was. The homepage was fine because
+  it used the short suffix `| NEXUS`. Put the keyword and the place first,
+  keep the suffix to the brand alone, and let the location live in the
+  keyword half where it is doing work.
+- When a title or description changes, change `og:title` / `twitter:title`
+  and `og:description` / `twitter:description` with it -- they are separate
+  tags and drift silently.
+- `scripts/check_seo_basics.py` in the `microsite-agent` skill checks all of
+  this and runs fine against these detailing sites too; it is not
+  microsite-specific.
 - Unique `<title>` + meta description per page, keyword worked naturally into
   the H1 and opening paragraph — never stuffed.
 - JSON-LD on every page that warrants it: `AutoDetailing` (or the relevant
