@@ -26,4 +26,4 @@ Validation: JavaScript syntax, markup and internal-link checks pass across all 1
 
 Extended one-time entrances to the actual homepage service-row media/body, individual service-area chips, quote heading/introduction, CTA bands and local callouts. Sibling-based staggering (0/65/130ms) stays consistent instead of depending on observer batch order. Added transform-only hero text/CTA/trust entrance, preserving full text opacity and immediate heading visibility; slight desktop-only service-photo zoom and feature-icon tilt. Form controls remain unanimated. Reduced-motion rules still apply. Shared asset cache version: 20261002-blocks across 10 pages.
 
-Validation: JavaScript syntax and markup checks passed; homepage and service rows reviewed in the local browser with no console errors. Publishing via main; production status checked after push.
+Validation: JavaScript syntax and markup checks passed; homepage and service rows reviewed in the local browser with no console errors. Published as e5b5f57: Vercel Production succeeded; production index.html verified with both 20261002-blocks assets. The root URL initially returned the previous cached HTML.
