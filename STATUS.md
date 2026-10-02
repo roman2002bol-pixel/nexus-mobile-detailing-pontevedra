@@ -21,3 +21,9 @@ Validation: all six static audits pass across 10 pages (links/assets, FAQ/schema
 Added one-time 420ms scroll entrances for below-the-fold section headings, cards, steps, examples and area grids; gentle desktop hover feedback on buttons/cards/area arrows; 220ms FAQ answer appearance. Shared assets cover all 10 pages, with cache versions updated. No external animation library, continuous animation, hero delay or layout shift. Content remains visible if JavaScript or IntersectionObserver is unavailable. Reduced-motion preference disables CSS motion and cancels/disconnects active scroll animations when changed. Touch devices do not receive the new hover effects.
 
 Validation: JavaScript syntax, markup and internal-link checks pass across all 10 pages. Desktop (1280px) and mobile (375px) browser review completed with no console errors. Reduced-motion fallback reviewed in code. Publication: commit 0dfd253 deployed successfully to Vercel; production HTML verified to reference both 20261002-motion assets. Maintenance: see README.md motion notes.
+
+## 2026-10-02 – additional block motion
+
+Extended one-time entrances to the actual homepage service-row media/body, individual service-area chips, quote heading/introduction, CTA bands and local callouts. Sibling-based staggering (0/65/130ms) stays consistent instead of depending on observer batch order. Added transform-only hero text/CTA/trust entrance, preserving full text opacity and immediate heading visibility; slight desktop-only service-photo zoom and feature-icon tilt. Form controls remain unanimated. Reduced-motion rules still apply. Shared asset cache version: 20261002-blocks across 10 pages.
+
+Validation: JavaScript syntax and markup checks passed; homepage and service rows reviewed in the local browser with no console errors. Publishing via main; production status checked after push.

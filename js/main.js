@@ -176,19 +176,19 @@
   if (!motionPreference.matches && "IntersectionObserver" in window && Element.prototype.animate) {
     var entranceAnimations = new Set();
     var entranceObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry, index) {
+      entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entranceObserver.unobserve(entry.target);
         if (motionPreference.matches || entry.target.matches(":focus-within")) return;
         var animation = entry.target.animate([
           { opacity: 0.25, transform: "translateY(14px)" },
           { opacity: 1, transform: "translateY(0)" }
-        ], { duration: 420, delay: (index % 3) * 45, easing: "cubic-bezier(.2,.7,.3,1)" });
+        ], { duration: 420, delay: (Array.prototype.indexOf.call(entry.target.parentElement.children, entry.target) % 3) * 65, easing: "cubic-bezier(.2,.7,.3,1)" });
         entranceAnimations.add(animation);
         animation.onfinish = animation.oncancel = function () { entranceAnimations.delete(animation); };
       });
     }, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
-    document.querySelectorAll("main .section-head, main .package-card, main .feature-card, main .review-card, main .step, main .guide-grid > article, main .area-grid").forEach(function (element) {
+    document.querySelectorAll("main .section-head, main .package-card, main .feature-card, main .review-card, main .step, main .guide-grid > article, main .area-grid > .area-chip, main .service-row-media, main .service-row-body, main .form-card > h2, main .form-card > p, main .cta-band, main .local-callout").forEach(function (element) {
       if (element.getBoundingClientRect().top >= window.innerHeight) entranceObserver.observe(element);
     });
     motionPreference.addEventListener("change", function (event) {

@@ -252,3 +252,5 @@ A few things that reliably improve logo-generation results with any tool:
 ## Motion maintenance
 
 Shared motion lives in css/style.css and js/main.js. Scroll entrances are progressive enhancement: do not add CSS that hides content pending JavaScript. Observe below-the-fold elements once, then unobserve; keep the hero immediately visible. Use opacity/transform only, no layout animation or scroll handlers. Respect prefers-reduced-motion at load and on changes. Hover lift applies only to fine pointers. Bump both asset versions across all pages after editing. October 2, 2026 implementation and validation are recorded in STATUS.md.
+
+Additional block motion (2026-10-02): target service-row-media/body on the homepage, not just package-card. Animate individual area chips instead of their parent to avoid nested transforms. Hero motion is transform-only with fully opaque text; do not hide or delay the heading. Keep form controls stationary.
