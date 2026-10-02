@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.nexusmobiledetailingh.com/images/og-image.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310202b'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='24' fill='%23c1903f' text-anchor='middle'%3ENX%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://www.nexusmobiledetailingh.com/">
-<link rel="stylesheet" href="css/style.css?v=20260922">
+<link rel="stylesheet" href="css/style.css?v=20261002">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,12 +44,31 @@
     "addressCountry": "US"
   },
   "areaServed": [
-    { "@type": "City", "name": "Ponte Vedra Beach", "containedInPlace": { "@type": "AdministrativeArea", "name": "Florida" } },
-    "St. Johns County, FL",
-    "Nocatee, FL",
-    "Jacksonville Beach, FL",
-    "Jacksonville, FL"
-  ],
+  {
+    "@type": "Place",
+    "name": "Jacksonville Beach, FL"
+  },
+  {
+    "@type": "Place",
+    "name": "Neptune Beach, FL"
+  },
+  {
+    "@type": "Place",
+    "name": "Atlantic Beach, FL"
+  },
+  {
+    "@type": "Place",
+    "name": "Ponte Vedra Beach, FL"
+  },
+  {
+    "@type": "Place",
+    "name": "Palm Valley, FL"
+  },
+  {
+    "@type": "Place",
+    "name": "Nocatee, FL"
+  }
+],
   "makesOffer": [
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard Detail" }, "priceCurrency": "USD", "price": "120" },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Only Deep Clean" }, "priceCurrency": "USD", "price": "160" },
@@ -87,7 +106,7 @@
     {
       "@type": "Question",
       "name": "Do you serve areas outside Ponte Vedra Beach?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We're focused on Ponte Vedra Beach and Nocatee first, and take St. Johns County and Jacksonville requests too – text or call to confirm we can get to your address." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. From our Jacksonville Beach base, we serve Jacksonville Beach, Neptune Beach, Atlantic Beach, Ponte Vedra Beach, Palm Valley and Nocatee. For other Jacksonville or St. Johns County addresses, call or text to confirm coverage and availability." }
     }
   ]
 }
@@ -98,7 +117,7 @@
 
 <div class="utility-bar">
   <div class="container">
-    <span>Mobile detailing that comes to you – Ponte Vedra Beach &amp; St. Johns County</span>
+    <span>Mobile detailing from Jacksonville Beach – the Beaches, Ponte Vedra &amp; Nocatee</span>
     <a href="tel:+19048714634">📞 (904) 871-4634</a>
   </div>
 </div>
@@ -123,7 +142,18 @@
         <li><a href="services/ceramic-coating.html">Ceramic Coating</a></li>
       </ul>
     </li>
-    <li><a href="areas/ponte-vedra-beach.html">Ponte Vedra Beach</a></li>
+    <li class="nav-group">
+      <button class="nav-group-label" type="button" aria-expanded="false" aria-controls="coverage-nav">Service Areas <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <ul class="nav-sub" id="coverage-nav">
+        <li><a href="service-areas.html">All Service Areas</a></li>
+        <li><a href="service-areas.html#jacksonville-beach">Jacksonville Beach</a></li>
+        <li><a href="service-areas.html#neptune-beach">Neptune Beach</a></li>
+        <li><a href="service-areas.html#atlantic-beach">Atlantic Beach</a></li>
+        <li><a href="service-areas.html#ponte-vedra-beach">Ponte Vedra Beach</a></li>
+        <li><a href="service-areas.html#palm-valley">Palm Valley</a></li>
+        <li><a href="service-areas.html#nocatee">Nocatee</a></li>
+      </ul>
+    </li>
     <li><a href="about.html">About</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -313,22 +343,21 @@
     </div>
   </section>
 
-  <section class="section-alt" id="service-area">
-    <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">Service Area</span>
-        <h2>Starting in Ponte Vedra Beach, expanding across St. Johns County</h2>
-        <p>We're launching focused on <a href="areas/ponte-vedra-beach.html">Ponte Vedra Beach</a> (32082) and Nocatee (32081) so every appointment gets our full attention – and we're adding new St. Johns County &amp; Jacksonville neighborhoods as we grow.</p>
+  <section class="section-alt" id="service-area"><div class="container">
+      <div class="section-head center"><span class="eyebrow">Service Areas</span>
+        <h2>From Jacksonville Beach to your driveway</h2>
+        <p>Based on S Beach Pkwy in Jacksonville Beach, we bring mobile detailing to the six areas below. Choose your area for appointment details, or send your address to confirm a visit.</p>
       </div>
-      <div class="area-grid">
-        <a class="area-chip" href="areas/ponte-vedra-beach.html">Ponte Vedra Beach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-        <a class="area-chip" href="contact.html">Nearby in St. Johns or Jax? Ask us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
-      </div>
-      <div style="margin-top:1.75rem;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)">
-        <iframe title="NEXUS Mobile Detailing service area map" src="https://www.google.com/maps?q=Ponte+Vedra+Beach,FL&output=embed" width="100%" height="320" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </section>
+      <div class="area-grid coverage-grid"><a class="area-chip" href="service-areas.html#jacksonville-beach">Jacksonville Beach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a>
+<a class="area-chip" href="service-areas.html#neptune-beach">Neptune Beach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a>
+<a class="area-chip" href="service-areas.html#atlantic-beach">Atlantic Beach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a>
+<a class="area-chip" href="service-areas.html#ponte-vedra-beach">Ponte Vedra Beach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a>
+<a class="area-chip" href="service-areas.html#palm-valley">Palm Valley <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a>
+<a class="area-chip" href="service-areas.html#nocatee">Nocatee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <p style="text-align:center;margin-top:1.5rem"><a href="service-areas.html">Explore all service areas and our base map</a>. Elsewhere in Jacksonville or St. Johns County? <a href="contact.html">Ask about your address</a>.</p>
+      <div style="margin-top:1.75rem;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)"><iframe title="NEXUS base in Jacksonville Beach" src="https://www.google.com/maps?q=4300+S+Beach+Pkwy+Jacksonville+Beach+FL+32250&amp;output=embed" width="100%" height="320" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <p class="muted" style="margin-top:.75rem;text-align:center">Map: our Jacksonville Beach base. We travel to you; appointments are at your confirmed location.</p>
+    </div></section>
 
   <section>
     <div class="container">
@@ -355,7 +384,7 @@
         </details>
         <details class="faq-item">
           <summary>Do you serve areas outside Ponte Vedra Beach?</summary>
-          <p>We're focused on <a href="areas/ponte-vedra-beach.html">Ponte Vedra Beach and Nocatee</a> first, and take St. Johns County and Jacksonville requests too – text or call to confirm we can get to your address.</p>
+          <p>Yes. From our Jacksonville Beach base, we serve Jacksonville Beach, Neptune Beach, Atlantic Beach, Ponte Vedra Beach, Palm Valley and Nocatee. For other Jacksonville or St. Johns County addresses, call or text to confirm coverage and availability.</p>
         </details>
       </div>
     </div>
@@ -452,7 +481,7 @@
         <span class="logo-mark">NX</span>
         <span class="logo-text"><strong style="color:#fff">NEXUS</strong><span>Mobile Detailing</span></span>
       </div>
-      <p class="muted">NEXUS brings a fully-stocked detailing unit straight to your driveway or lot anywhere in Ponte Vedra Beach – water, power, and every tool included, nothing required from you.</p>
+      <p class="muted">NEXUS brings a fully-stocked detailing unit to your approved driveway or parking location across our service areas – water, power, and every tool included, nothing required from you.</p>
       <div class="badge-list">
         <span>Fully Mobile</span><span>Upfront Pricing</span><span>Satisfaction Guarantee</span>
       </div>
@@ -467,11 +496,14 @@
       </div>
     </div>
     <div>
-      <h4>Service Area</h4>
+      <h4>Service Areas</h4>
       <div class="footer-links">
-        <a href="areas/ponte-vedra-beach.html">Ponte Vedra Beach</a>
-        <a href="contact.html">Nocatee / St. Johns – ask us</a>
-        <a href="contact.html">Jacksonville – ask us</a>
+        <a href="service-areas.html#jacksonville-beach">Jacksonville Beach</a>
+        <a href="service-areas.html#neptune-beach">Neptune Beach</a>
+        <a href="service-areas.html#atlantic-beach">Atlantic Beach</a>
+        <a href="service-areas.html#ponte-vedra-beach">Ponte Vedra Beach</a>
+        <a href="service-areas.html#palm-valley">Palm Valley</a>
+        <a href="service-areas.html#nocatee">Nocatee</a>
       </div>
     </div>
     <div>
@@ -487,7 +519,7 @@
   </div>
   <div class="container footer-bottom">
     <span>© <span data-year></span> NEXUS Mobile Detailing. All rights reserved.</span>
-    <span>Serving Ponte Vedra Beach &amp; St. Johns County, FL</span>
+    <span>Serving the Beaches, Ponte Vedra &amp; Nocatee, FL</span>
   </div>
 </footer>
 
@@ -497,6 +529,6 @@
   <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Request an Appointment</a>
 </div>
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=20261002"></script>
 </body>
 </html>

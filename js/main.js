@@ -35,6 +35,9 @@
   document.querySelectorAll(".nav-group").forEach(function (group) {
     var label = group.querySelector(".nav-group-label");
     var lockedClosed = false;
+    function updateExpanded() {
+      if (label.tagName === "BUTTON") label.setAttribute("aria-expanded", String(group.classList.contains("is-open")));
+    }
 
     label.addEventListener("click", function () {
       if (window.innerWidth >= 960) {
@@ -45,13 +48,16 @@
         group.classList.toggle("is-open");
       }
     });
+    label.addEventListener("click", updateExpanded);
     group.addEventListener("mouseenter", function () {
       if (window.innerWidth >= 960 && !lockedClosed) group.classList.add("is-open");
+      updateExpanded();
     });
     group.addEventListener("mouseleave", function () {
       if (window.innerWidth >= 960) {
         group.classList.remove("is-open");
         lockedClosed = false;
+        updateExpanded();
       }
     });
   });

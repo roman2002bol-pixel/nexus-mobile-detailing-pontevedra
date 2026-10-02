@@ -1,6 +1,6 @@
 # NEXUS Mobile Detailing of Ponte Vedra – Website
 
-A complete, static (HTML/CSS/JS only – no build step, no dependencies) 9-page
+A complete, static (HTML/CSS/JS only – no build step, no dependencies) 10-page
 website, built mobile-first for a mobile detailing business launching in
 Ponte Vedra Beach, FL / St. Johns County.
 
@@ -29,15 +29,9 @@ js/main.js             Mobile nav, image placeholders, form handling
 images/README.txt      Exact filenames the site expects – drop your photos in
 ```
 
-**Why only one area page (unlike a typical multi-city detailing site):**
-Google's spam updates specifically target sites that publish many
-near-identical templated location pages before they have real, distinct
-content to put on each one – even a handful counts if the pages are thin.
-Ponte Vedra Beach is genuinely fleshed out (real neighborhoods, a Ponte
-Vedra-specific FAQ, its own schema). Add a page for Nocatee, St. Johns, or
-Jacksonville only once you have real, specific things to say about that
-area – jobs done there, local landmarks, actual coverage confirmed – not
-by copy-pasting this file and swapping the city name.
+**Coverage and local pages:** `service-areas.html` lists six owner-confirmed areas around the Jacksonville Beach base: Jacksonville Beach, Neptune Beach, Atlantic Beach, Ponte Vedra Beach, Palm Valley and Nocatee. Each has a linkable section with appointment guidance. The existing Ponte Vedra Beach guide remains available. Coverage must not be hidden just because a location does not have its own standalone page. Add dedicated local pages when distinct useful content is available, without duplicating a template.
+
+**Maintenance rule:** Keep the Service Areas dropdown, homepage chips, footer, hub, homepage FAQ/schema, sitemap and llms.txt consistent. The Google map marks the real Jacksonville Beach base, not a coverage boundary or drop-off shop. Confirm new service areas with the owner; do not invent travel radii or arrival times. Use the existing dropdown behavior for desktop and mobile and update `aria-expanded` for button triggers. See STATUS.md for the October 2, 2026 change and verification.
 
 ## 3. Before you launch – placeholders to replace
 

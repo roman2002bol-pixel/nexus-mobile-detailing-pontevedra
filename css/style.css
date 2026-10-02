@@ -445,3 +445,16 @@ body { padding-bottom: 70px; }
   .hero-trust strong { font-size:.85rem; line-height:1.3; }
   .hero-trust span { display:block; font-size:.75rem; line-height:1.45; margin-top:.4rem; }
 }
+
+/* Service-area navigation and coverage hub, October 2026. */
+button.nav-group-label { border: 0; background: transparent; font-family: inherit; text-align: left; }
+.coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.coverage-details { display: grid; gap: 1.25rem; margin-top: 2rem; }
+.coverage-card { scroll-margin-top: 7rem; }
+.coverage-card h2 { font-size: 1.5rem; }
+.coverage-card p { margin-bottom: 1rem; }
+.coverage-card a { text-decoration: underline; text-underline-offset: .2em; }
+@media (min-width: 700px) {
+  .coverage-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .coverage-details { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
