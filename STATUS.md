@@ -14,4 +14,4 @@ Implemented: Service Areas dropdown and six location links on all 10 pages; new 
 
 Reusable technique: distinguish actual business coverage from standalone SEO pages. Give every confirmed area a useful, addressable hub section and expose those links consistently. A map of the base is labeled as a base, not a service boundary. Maintenance details are recorded in README.md.
 
-Validation: all six static audits pass across 10 pages (links/assets, FAQ/schema parity, image reuse, markup hooks, SEO basics and US English). Browser review at 375px and 1440px confirmed the six-area mobile dropdown, area-anchor navigation, homepage grid and base map. Publication: prepared for production deployment via main; live verification follows.
+Validation: all six static audits pass across 10 pages (links/assets, FAQ/schema parity, image reuse, markup hooks, SEO basics and US English). Browser review at 375px and 1440px confirmed the six-area mobile dropdown, area-anchor navigation, homepage grid and base map. Publication: commit 02a8606 deployed successfully to Vercel; the production service-areas.html page was opened and all six area sections verified on October 2, 2026.
