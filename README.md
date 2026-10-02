@@ -248,3 +248,7 @@ A few things that reliably improve logo-generation results with any tool:
 - Once you like a direction, ask the tool to "simplify further" or "reduce
   to flat shapes" – first outputs from most AI image tools are usually
   more detailed than a logo should be.
+
+## Motion maintenance
+
+Shared motion lives in css/style.css and js/main.js. Scroll entrances are progressive enhancement: do not add CSS that hides content pending JavaScript. Observe below-the-fold elements once, then unobserve; keep the hero immediately visible. Use opacity/transform only, no layout animation or scroll handlers. Respect prefers-reduced-motion at load and on changes. Hover lift applies only to fine pointers. Bump both asset versions across all pages after editing. October 2, 2026 implementation and validation are recorded in STATUS.md.

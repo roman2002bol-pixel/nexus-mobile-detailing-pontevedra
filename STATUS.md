@@ -15,3 +15,9 @@ Implemented: Service Areas dropdown and six location links on all 10 pages; new 
 Reusable technique: distinguish actual business coverage from standalone SEO pages. Give every confirmed area a useful, addressable hub section and expose those links consistently. A map of the base is labeled as a base, not a service boundary. Maintenance details are recorded in README.md.
 
 Validation: all six static audits pass across 10 pages (links/assets, FAQ/schema parity, image reuse, markup hooks, SEO basics and US English). Browser review at 375px and 1440px confirmed the six-area mobile dropdown, area-anchor navigation, homepage grid and base map. Publication: commit 02a8606 deployed successfully to Vercel; the production service-areas.html page was opened and all six area sections verified on October 2, 2026.
+
+## 2026-10-02 – subtle motion
+
+Added one-time 420ms scroll entrances for below-the-fold section headings, cards, steps, examples and area grids; gentle desktop hover feedback on buttons/cards/area arrows; 220ms FAQ answer appearance. Shared assets cover all 10 pages, with cache versions updated. No external animation library, continuous animation, hero delay or layout shift. Content remains visible if JavaScript or IntersectionObserver is unavailable. Reduced-motion preference disables CSS motion and cancels/disconnects active scroll animations when changed. Touch devices do not receive the new hover effects.
+
+Validation: JavaScript syntax, markup and internal-link checks pass across all 10 pages. Desktop (1280px) and mobile (375px) browser review completed with no console errors. Reduced-motion fallback reviewed in code. Publication: ready for main deployment. Maintenance: see README.md motion notes.
