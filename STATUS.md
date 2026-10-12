@@ -61,3 +61,13 @@ Roman approved the proposals in the entry above.
 **Found while verifying, not fixed:** the entire repository is deployed as static assets, so `STATUS.md`, `README.md` and `.claude/` are publicly served on the business domain and could be indexed. A `.assetsignore` would exclude them. Awaiting Roman's decision.
 
 Checks: `check_clean_urls`, `check_broken_links` (now resolving clean URLs), `check_seo_basics` and `check_markup_contract` pass.
+
+## 2026-10-12 – Internal files removed from the live domain
+
+**What changed.** Added `.assetsignore` (commit 35b976e), which Cloudflare's static-asset deploy reads: it excludes `.claude`, `*.md`, `.nojekyll`, `images/README.txt` and itself.
+
+**Why.** The whole repository was deployed, so `STATUS.md`, `README.md` and every `.claude/` skill were publicly served on nexusmobiledetailingh.com and could be indexed under the business domain.
+
+**Verification (live).** Workers Build succeeded. `STATUS.md`, `README.md`, `.claude/...`, `images/README.txt`, `.nojekyll` and `.assetsignore` now return 404; `/`, `/about`, `/contact`, `/services/full-detail`, `/service-areas`, `sitemap.xml`, `robots.txt`, `llms.txt`, CSS and JS still return 200. The GitHub Pages copy is unaffected by design (that host ignores the file; the repo is public there anyway).
+
+**Found, not fixed:** every page's `og:image` points to `images/og-image.jpg`, which has never existed in the repo (404 on live and on GitHub Pages). Shared links therefore show no preview image. Needs a 1200x630 image chosen and added.
