@@ -1,0 +1,11 @@
+# Files that are not website content. Cloudflare's static-asset deploy reads
+# this file and does not upload what it matches (gitignore syntax).
+# Without it the whole repo was public on the business domain:
+# STATUS.md, README.md and every .claude/ skill (found 2026-10-12).
+.assetsignore
+.claude
+.git
+.github
+.nojekyll
+*.md
+images/README.txt
