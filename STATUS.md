@@ -45,3 +45,19 @@ Roman asked why half the pages show as not indexed. Checked in Search Console (p
 2. Request indexing for the three unknown pages.
 3. Switch canonical, `og:url`, sitemap and internal links to the extensionless URLs that return 200, so no listed URL redirects.
 4. Add a Cloudflare redirect from the apex to `www` (needs Cloudflare dashboard access).
+
+## 2026-10-12 – Indexing fixes implemented
+
+Roman approved the proposals in the entry above.
+
+**Implemented and verified live:**
+1. **Clean URLs.** Canonical, `og:url`, JSON-LD, sitemap, `llms.txt` and all internal links now use extensionless URLs (commit 0eabdc9). Its Cloudflare Workers Build failed with no code cause; an empty commit (5051666) rebuilt successfully. On the live domain all 10 sitemap URLs return 200 with a self-referencing canonical, and every internal link checked returns 200 with no redirect.
+2. **Sitemap submitted** in Search Console on 2026-10-12. It showed "Couldn't fetch" immediately after submission; the file returns 200 as `application/xml`, is valid, lists 10 URLs and is served to the Googlebot user agent, so this is the initial state. Recheck in a few days.
+3. **Indexing requested** for `/services/full-detail`, `/services/standard-detail` and `/service-areas`; each confirmed "added to a priority crawl queue". Indexing itself is not guaranteed and has not happened yet.
+
+**Not done:**
+4. Apex-to-`www` redirect -- needs a Cloudflare redirect rule; the dashboard in Chrome was signed out, and signing in is Roman's step.
+
+**Found while verifying, not fixed:** the entire repository is deployed as static assets, so `STATUS.md`, `README.md` and `.claude/` are publicly served on the business domain and could be indexed. A `.assetsignore` would exclude them. Awaiting Roman's decision.
+
+Checks: `check_clean_urls`, `check_broken_links` (now resolving clean URLs), `check_seo_basics` and `check_markup_contract` pass.
