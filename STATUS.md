@@ -27,3 +27,21 @@ Validation: JavaScript syntax, markup and internal-link checks pass across all 1
 Extended one-time entrances to the actual homepage service-row media/body, individual service-area chips, quote heading/introduction, CTA bands and local callouts. Sibling-based staggering (0/65/130ms) stays consistent instead of depending on observer batch order. Added transform-only hero text/CTA/trust entrance, preserving full text opacity and immediate heading visibility; slight desktop-only service-photo zoom and feature-icon tilt. Form controls remain unanimated. Reduced-motion rules still apply. Shared asset cache version: 20261002-blocks across 10 pages.
 
 Validation: JavaScript syntax and markup checks passed; homepage and service rows reviewed in the local browser with no console errors. Published as e5b5f57: Vercel Production succeeded; production index.html verified with both 20261002-blocks assets. The root URL initially returned the previous cached HTML.
+
+## 2026-10-12 – Search Console indexing investigation (findings only, no site changes)
+
+Roman asked why half the pages show as not indexed. Checked in Search Console (property `https://www.nexusmobiledetailingh.com/`, account roman2002bol@gmail.com) and by direct HTTP requests.
+
+**What Search Console shows.** Indexed 7, not indexed 7. The 7 indexed are `/`, `/about.html`, `/reviews.html`, `/contact.html`, `/services/ceramic-coating.html`, `/services/interior-deep-clean.html`, `/areas/ponte-vedra-beach.html`. All 7 "not indexed" are duplicates of pages that *are* indexed: six "Alternate page with proper canonical tag" (`/about`, `/reviews`, `/contact`, `/services/ceramic-coating`, `/services/interior-deep-clean`, `/areas/ponte-vedra-beach` -- the extensionless twins) and one "Page with redirect" (`/index.html` -> `/`). That is consolidation working, not lost pages. A "validate fix" had been started on the alternate-canonical group and shows Failed; that is expected, because those are not errors.
+
+**The real gap: three pages Google has never seen.** URL Inspection reports "URL is unknown to Google" for `/services/full-detail.html`, `/services/standard-detail.html` and `/service-areas.html`, with no matching sitemap and no detected referring pages. **No sitemap has ever been submitted** for this property (Sitemaps report: 0 entries), so discovery depends entirely on crawling links on a new, low-authority site.
+
+**Contributing configuration issue.** Every canonical, `og:url`, sitemap `<loc>` and internal link uses `.html`, but Cloudflare answers each `.html` URL with a 307 temporary redirect to the extensionless URL, whose canonical points back to `.html`. Nine of ten sitemap URLs therefore redirect. Google has tolerated it for six pages, but it is the source of the duplicate set and a weak, contradictory signal. Separately, the apex `nexusmobiledetailingh.com` serves the full site with 200 instead of redirecting to `www`.
+
+**Hosting, confirmed:** the live domain is served by Cloudflare (Cloudflare IPs, `Server: cloudflare`, `CF-Cache-Status`, no Vercel headers, no `vercel.json`). The October 2 entry above mentions "Vercel Production"; that refers to the leftover Vercel project that still builds from GitHub, not to what visitors and Google receive.
+
+**Proposals, not implemented (awaiting Roman):**
+1. Submit `https://www.nexusmobiledetailingh.com/sitemap.xml` in Search Console.
+2. Request indexing for the three unknown pages.
+3. Switch canonical, `og:url`, sitemap and internal links to the extensionless URLs that return 200, so no listed URL redirects.
+4. Add a Cloudflare redirect from the apex to `www` (needs Cloudflare dashboard access).
