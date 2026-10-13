@@ -71,3 +71,15 @@ Checks: `check_clean_urls`, `check_broken_links` (now resolving clean URLs), `ch
 **Verification (live).** Workers Build succeeded. `STATUS.md`, `README.md`, `.claude/...`, `images/README.txt`, `.nojekyll` and `.assetsignore` now return 404; `/`, `/about`, `/contact`, `/services/full-detail`, `/service-areas`, `sitemap.xml`, `robots.txt`, `llms.txt`, CSS and JS still return 200. The GitHub Pages copy is unaffected by design (that host ignores the file; the repo is public there anyway).
 
 **Found, not fixed:** every page's `og:image` points to `images/og-image.jpg`, which has never existed in the repo (404 on live and on GitHub Pages). Shared links therefore show no preview image. Needs a 1200x630 image chosen and added.
+
+## 2026-10-13 – Apex domain now redirects to www
+
+**What changed.** Added a Cloudflare Single Redirect rule on the `nexusmobiledetailingh.com` zone (Rules > Redirect Rules, name "Apex to www (http and https)"): filter `(http.host eq "nexusmobiledetailingh.com")`, dynamic target `concat("https://www.nexusmobiledetailingh.com", http.request.uri.path)`, 301, preserve query string. Created by Claude in Roman's LPromo Edge profile after Roman signed in himself. No repo files changed for the rule.
+
+**Why.** The bare domain served the whole site with 200, a second copy of every page (launch check 4, see the 2026-10-12 entries).
+
+**How it was built, and what to avoid.** The "Redirect from root to WWW" template only matches `https://`, so `http://nexusmobiledetailingh.com` would have stayed a 200 copy. A wildcard of `http*://nexusmobiledetailingh.com/*` made the dashboard read the hostname as "http" and warn that the rule might not apply, so it was cancelled in favour of the host filter above, which covers both schemes in one hop.
+
+**Verification (live, curl).** `https://nexusmobiledetailingh.com/`, `/services/full-detail?utm_source=test`, `http://nexusmobiledetailingh.com/about` and `/sitemap.xml` on the apex all return 301 to the same path and query on `https://www.`; following the apex lands on a 200 in one hop. `www` pages and `www` sitemap still return 200.
+
+**Remaining.** `http://www.nexusmobiledetailingh.com/` still returns 200 rather than redirecting to `https`. Cloudflare's "Always Use HTTPS" setting (SSL/TLS > Edge Certificates) would fix that; it is a zone setting, not changed without Roman's go-ahead. Missing `og-image.jpg` (see above) is still open.
