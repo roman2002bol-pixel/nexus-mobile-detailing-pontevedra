@@ -1,4 +1,4 @@
-/* NEXUS Mobile Detailing – site behavior. Vanilla JS, no dependencies. */
+/* NEXUS Mobile Detailing, site behavior. Vanilla JS, no dependencies. */
 (function () {
   "use strict";
 
@@ -22,10 +22,10 @@
   closeBtn && closeBtn.addEventListener("click", closeNav);
   overlay && overlay.addEventListener("click", closeNav);
 
-  /* dropdown nav groups (Services / Service Area) – mobile accordion +
+  /* dropdown nav groups (Services / Service Area), mobile accordion +
      desktop hover/click. On desktop, hovering opens it (mouseenter/
      mouseleave drive the same .is-open class the CSS shows the dropdown
-     from – not a separate :hover rule). Clicking always flips it, so a
+     from, not a separate :hover rule). Clicking always flips it, so a
      click while it's open (however it got open) closes it. The
      "lockedClosed" flag exists because a click doesn't stop the mouse
      from still resting on the trigger afterward: without it, the very
@@ -87,10 +87,10 @@
   /* ---------- booking / quote form ----------
      Two modes, switched per-form by data-endpoint-ready:
      - "false" (no backend yet): pre-filled mailto fallback, same as
-       before – nothing is ever silently lost, just not fully automatic.
+       before, nothing is ever silently lost, just not fully automatic.
      - "true" (a real endpoint is set in the form's action, e.g.
        Formspree): submit via fetch so the visitor never leaves the
-       page – show an inline confirmation/error in .form-status instead
+       page, show an inline confirmation/error in .form-status instead
        of a full-page redirect to the form provider's own thank-you page. */
   document.querySelectorAll("[data-booking-form]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
@@ -103,11 +103,11 @@
         var data = new FormData(form);
         var lines = [];
         data.forEach(function (value, key) { lines.push(key + ": " + value); });
-        var subject = encodeURIComponent("New booking request – NEXUS Mobile Detailing");
+        var subject = encodeURIComponent("New booking request, NEXUS Mobile Detailing");
         var body = encodeURIComponent(lines.join("\n"));
         window.location.href = "mailto:nexusmobiledetailingh@gmail.com?subject=" + subject + "&body=" + body;
         if (status) {
-          status.textContent = "Opening your email app to send the request – or just call/text us instead.";
+          status.textContent = "Opening your email app to send the request, or just call/text us instead.";
           status.className = "form-status ok is-visible";
         }
         trackLead("quote_form");
@@ -127,14 +127,14 @@
       }).then(function (response) {
         if (!response.ok) throw new Error("Form submission failed");
         if (status) {
-          status.textContent = "Thanks! Your request is in – we'll get back to you shortly.";
+          status.textContent = "Thanks! Your request is in, we'll get back to you shortly.";
           status.className = "form-status ok is-visible";
         }
         form.reset();
         trackLead("quote_form");
       }).catch(function () {
         if (status) {
-          status.textContent = "Something went wrong sending that – please call or text us instead.";
+          status.textContent = "Something went wrong sending that, please call or text us instead.";
           status.className = "form-status err is-visible";
         }
       }).finally(function () {
@@ -145,11 +145,11 @@
 
   /* ---------- lead tracking (GA4) ----------
      Fires distinct, named events instead of relying on GA4 Enhanced
-     Measurement's automatic "click" event – that one lumps tel:/mailto:
+     Measurement's automatic "click" event, that one lumps tel:/mailto:
      links together with every other outbound click (social links, the
      map embed, etc.), so marking it as a Key Event would count all of
      those as "leads", not just real contact attempts. No-ops silently
-     until the GA4 gtag.js snippet is actually added to <head> – safe to
+     until the GA4 gtag.js snippet is actually added to <head>, safe to
      ship ahead of that. */
   function trackLead(label, extra) {
     if (typeof gtag !== "function") return;

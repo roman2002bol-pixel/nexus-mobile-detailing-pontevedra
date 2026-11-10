@@ -67,7 +67,7 @@ section { padding-block: clamp(2.75rem, 6vw, 5rem); }
   font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   color: var(--accent-dark); margin-bottom: .75rem;
 }
-.eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--accent); display: inline-block; }
+.eyebrow::before { content: none; }
 .section-head { max-width: 640px; margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
 .section-head.center { margin-inline: auto; text-align: center; }
 .text-center { text-align: center; }

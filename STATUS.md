@@ -83,3 +83,11 @@ Checks: `check_clean_urls`, `check_broken_links` (now resolving clean URLs), `ch
 **Verification (live, curl).** `https://nexusmobiledetailingh.com/`, `/services/full-detail?utm_source=test`, `http://nexusmobiledetailingh.com/about` and `/sitemap.xml` on the apex all return 301 to the same path and query on `https://www.`; following the apex lands on a 200 in one hop. `www` pages and `www` sitemap still return 200.
 
 **Remaining.** `http://www.nexusmobiledetailingh.com/` still returns 200 rather than redirecting to `https`. Cloudflare's "Always Use HTTPS" setting (SSL/TLS > Edge Certificates) would fix that; it is a zone setting, not changed without Roman's go-ahead. Missing `og-image.jpg` (see above) is still open.
+
+## 2026-11-10 - punctuation cleanup and Search Console indexing audit
+
+Removed decorative eyebrow rules and long dashes from all public HTML, FAQ JSON-LD, llms.txt and JS strings. Owner preference supersedes older en-dash guidance. Updated shared asset versions to 20261110 and sitemap lastmod for the ten edited pages.
+
+Search Console property: https://www.nexusmobiledetailingh.com/. Page indexing report updated November 6: eight indexed, seven old .html URLs excluded as redirects, two clean service URLs discovered but not indexed (full-detail and standard-detail), no crawl date. Redirect exclusions are expected after the October clean-URL migration. All ten live sitemap URLs return 200 without redirects, self-canonicalize and have no noindex/X-Robots-Tag block. No demonstrated technical cause for Google's crawl scheduling yet. Continue with URL Inspection/live checks and request indexing after deployment; do not claim requests guarantee indexing.
+
+Local validation: internal links, FAQ parity, markup and SEO basics pass across ten pages. Deployment and inspection outcomes to follow.
