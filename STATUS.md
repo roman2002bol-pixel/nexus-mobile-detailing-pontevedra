@@ -91,3 +91,14 @@ Removed decorative eyebrow rules and long dashes from all public HTML, FAQ JSON-
 Search Console property: https://www.nexusmobiledetailingh.com/. Page indexing report updated November 6: eight indexed, seven old .html URLs excluded as redirects, two clean service URLs discovered but not indexed (full-detail and standard-detail), no crawl date. Redirect exclusions are expected after the October clean-URL migration. All ten live sitemap URLs return 200 without redirects, self-canonicalize and have no noindex/X-Robots-Tag block. No demonstrated technical cause for Google's crawl scheduling yet. Continue with URL Inspection/live checks and request indexing after deployment; do not claim requests guarantee indexing.
 
 Local validation: internal links, FAQ parity, markup and SEO basics pass across ten pages. Deployment and inspection outcomes to follow.
+
+### November 10 outcome
+
+- Cloudflare Workers Build for 4825c87 succeeded. All ten production pages verified with zero long-dash characters and 20261110 assets; decorative eyebrow rule removed. Sitemap contains ten real modification dates.
+- Indexed URLs in the GSC report: /, /about, /reviews, /contact, /service-areas, /areas/ponte-vedra-beach, /services/interior-deep-clean, /services/ceramic-coating.
+- Full Detail inspection: discovered, not indexed, sitemap known, no crawl recorded. Standard Detail aggregate report: discovered, not indexed; individual inspection instead says URL unknown with no referring sitemap. Record this discrepancy rather than inventing a cause.
+- Both URL Inspection live tests passed: Google can access the URL and the page can be indexed. No current technical indexing block demonstrated. Google's exact crawl-priority decision is not exposed.
+- Requested indexing for /services/full-detail and /services/standard-detail after publishing. Both displayed the confirmation that the URL was added to the priority crawl queue. Requests are not proof of indexing and do not guarantee inclusion.
+- Resubmitted /sitemap.xml. Confirmed successful submission; table shows submitted/read November 10, Success, ten discovered pages.
+- Default Python urllib user agent received HTTP 403 on sitemap; browser-user-agent check passed, and Google's actual live inspections and sitemap processing succeeded. Do not attribute the index delay to this unrelated synthetic-client result.
+- No need to request indexing for seven obsolete .html redirect URLs. Their exclusion is expected. No automated monitoring was scheduled.
